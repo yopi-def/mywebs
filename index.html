@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@arvyn.ev - Personal Links</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Connect with me through all my social platforms and projects">
+    <meta name="keywords" content="personal links, social media, portfolio">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="@arvyn.ev - Personal Links">
+    <meta property="og:description" content="Connect with me through all my social platforms and projects">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ui-avatars.com/api/?name=Your+Name&size=400&background=8b5cf6&color=fff">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Space Grotesk', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* OPTIMIZED: Fixed Background - Reduced Processing */
+        body {
+            background-image: url('https://i.imgur.com/CnazhJ0.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* OPTIMIZED: Simple Overlay - No Animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        body > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* OPTIMIZED: Reduced Float Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+            will-change: transform;
+        }
+        
+        /* OPTIMIZED: Simple Glow */
+        .glow {
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+        }
+        
+        .glow-hover:hover {
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        /* OPTIMIZED: Lighter Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px); /* Reduced from 16px */
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* OPTIMIZED: Simple Gradient Border */
+        .gradient-border {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px); /* Reduced */
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-border:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* OPTIMIZED: Simple Accordion */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.open {
+            max-height: 1000px;
+        }
+        
+        .accordion-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-arrow.rotate {
+            transform: rotate(180deg);
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+            transform: translateX(400px);
+            transition: transform 0.3s ease-out;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        /* OPTIMIZED: Simple Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .floating-cta:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.6);
+        }
+        
+        /* OPTIMIZED: Simple Fade In */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        /* Focus Styles */
+        *:focus-visible {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+        }
+        
+        /* OPTIMIZED: Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px); /* Reduced */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-overlay.show .modal-content {
+            transform: scale(1);
+        }
+        
+        /* Media Preview */
+        .media-preview {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+        
+        .media-preview img,
+        .media-preview video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* OPTIMIZED: Icon Box */
+        .icon-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px); /* Reduced */
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .icon-box:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        /* Performance Optimization */
+        .ripple-effect {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 overflow-x-hidden">
+    
+    <!-- Main Container -->
+    <div class="w-full max-w-md mx-auto relative z-10 pb-24">
+        
+        <!-- Profile Section -->
+        <div class="text-center mb-8 fade-in">
+            <!-- Avatar -->
+            <div class="relative inline-block mb-4 float-animation">
+                <div class="w-32 h-32 rounded-full glow overflow-hidden border-4 border-purple-500/30">
+                    <img src="https://i.imgur.com/8Ksoc8t.jpeg" 
+                         alt="Profile Avatar" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <!-- Username with Copy Button -->
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <h1 class="text-3xl font-bold text-white">@arvyn.ev</h1>
+                <button onclick="copyUsername()" 
+                        class="p-2 hover:bg-white/10 rounded-lg transition-all duration-300" 
+                        title="Copy username"
+                        aria-label="Copy username">
+                    <i class="fas fa-copy text-purple-400"></i>
+                </button>
+            </div>
+            
+            <!-- Bio -->
+            <p class="text-slate-300 text-sm max-w-xs mx-auto mb-3">
+                Creator • Developer • Designer<br>
+                Building cool stuff on the internet
+            </p>
+            
+            <!-- Verified Badge -->
+            <div class="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full border border-purple-500/30">
+                <i class="fas fa-check-circle text-purple-400"></i>
+                <span class="text-xs text-purple-300 font-medium">Verified</span>
+            </div>
+        </div>
+
+        <!-- Content Container -->
+        <div id="contentContainer" class="space-y-6">
+            <!-- Content will be generated by JavaScript -->
+        </div>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-12 pb-4">
+            <p class="text-slate-500 text-xs mb-2">
+                © copyright arvyn.ev
+            </p>
+            <p class="text-slate-600 text-xs flex items-center justify-center gap-1">
+                <span>Made with</span>
+                <i class="fas fa-heart text-purple-400"></i>
+                <span>From Yopi</span>
+            </p>
+        </footer>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="flex items-center gap-2">
+            <i class="fas fa-check-circle"></i>
+            <span id="toastMessage">Success!</span>
+        </div>
+    </div>
+    
+    <!-- QRIS Modal -->
+    <div id="qrisModal" class="modal-overlay" onclick="closeQRIS()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="glass rounded-2xl p-6 relative max-w-2xl mx-auto">
+                <button onclick="closeQRIS()" class="absolute top-4 right-4 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all z-10">
+                    <i class="fas fa-times text-white"></i>
+                </button>
+                <h3 class="text-white text-xl font-bold mb-4 text-center">Scan QRIS untuk Donasi</h3>
+                
+                <!-- QRIS Image Container - Flexible Size -->
+                <div class="bg-white rounded-xl p-4 flex items-center justify-center">
+                    <img src="https://i.imgur.com/gNsfuhh.jpeg" 
+                         alt="QRIS Code" 
+                         class="max-w-full h-auto rounded-lg"
+                         style="max-height: 70vh; object-fit: contain;">
+                </div>
+                
+                <p class="text-slate-300 text-sm text-center mt-4">Terima kasih atas dukungan Anda! 🙏</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Content Data
+        const contentData = {
+            pinned: [
+                {
+                    type: 'link',
+                    title: 'Join My Newsletter',
+                    url: 'https://chat.whatsapp.com/CXGY0dlrwUxKfEbwyskUE4',
+                    icon: 'fas fa-envelope'
+                }
+            ],
+            groups: [
+                {
+                    title: 'Business',
+                    icon: '',
+                    items: [
+                        {
+                            type: 'link',
+                            title: 'WhatsApp Business',
+                            url: 'https://wa.me/628217620233',
+                            icon: 'fab fa-whatsapp'
+                        },
+                        {
+                            type: 'link',
+                            title: 'Email Me',
+                            url: 'mailto:contact@arvyn.web.id',
+                            icon: 'fas fa-envelope'
+                        }
+                    ]
+                },
+                {
+                    title: 'Social Media',
+                    icon: '',
+                    items: [
+                        {
+                            type: 'accordion',
+                            title: 'WhatsApp',
+                            subtitle: 'Multiple phone numbers',
+                            icon: 'fab fa-whatsapp',
+                            content: `
+                                <div class="space-y-3">
+                                    <a href="https://wa.me/6287895943737" target="_blank" class="block p-3 bg-slate-800/50 rounded-lg hover:bg-slate-700/50 transition-all">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <div class="text-white font-medium">Nomor Utama</div>
+                                                <div class="text-xs text-slate-400">+62 878 9594 3737</div>
+                                            </div>
+                                            <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                                        </div>
+                                    </a>
+                                    <a href="https://wa.me/628154067543" target="_blank" class="block p-3 bg-slate-800/50 rounded-lg hover:bg-slate-700/50 transition-all">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <div class="text-white font-medium">Nomor Lainnya</div>
+                                                <div class="text-xs text-slate-400">+62 815 4067 543</div>
+                                            </div>
+                                            <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                                        </div>
+                                    </a>
+                                    <a href="https://wa.me/6285179937370" target="_blank" class="block p-3 bg-slate-800/50 rounded-lg hover:bg-slate-700/50 transition-all">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <div class="text-white font-medium">Nomor Lainnya 2</div>
+                                                <div class="text-xs text-slate-400">+62 851 799 3737 0</div>
+                                            </div>
+                                            <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            `
+                        },
+                        {
+                            type: 'link',
+                            title: 'Instagram',
+                            url: 'https://instagram.com/arvyn.ev',
+                            icon: 'fab fa-instagram'
+                        },
+                        {
+                            type: 'link',
+                            title: 'TikTok',
+                            url: 'https://tiktok.com/@arvyn.ev',
+                            icon: 'fab fa-tiktok'
+                        },
+                        {
+                            type: 'link',
+                            title: 'Threads',
+                            url: 'https://threads.net/@arvyn.ev',
+                            icon: 'fab fa-threads'
+                        },
+                        {
+                            type: 'link',
+                            title: 'Telegram',
+                            url: 'https://t.me/arvynev',
+                            icon: 'fab fa-telegram'
+                        }
+                    ]
+                },
+                {
+                    title: 'Support Me',
+                    icon: '',
+                    items: [
+                        {
+                            type: 'qris',
+                            title: 'Donate via QRIS',
+                            subtitle: 'Scan to support my work',
+                            icon: 'fas fa-qrcode',
+                            qrisImage: 'https://i.imgur.com/gNsfuhh.jpeg'
+                        }
+                    ]
+                },
+                {
+                    title: 'Media',
+                    icon: '',
+                    items: [
+                        {
+                            type: 'media',
+                            mediaType: 'video',
+                            title: 'My Favorite Videos',
+                            subtitle: 'watch now',
+                            icon: 'fas fa-play-circle',
+                            videoUrl: '/video.mp4',
+                            thumbnail: 'https://img.youtube.com/vi/knT1DqoyHXI/maxresdefault.jpg'
+                        }
+                    ]
+                }
+            ]
+        };
+        
+        // Utility Functions
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+        
+        function copyUsername() {
+            navigator.clipboard.writeText('@arvyn.ev').then(() => {
+                showToast('Username copied!');
+            });
+        }
+
+        function toggleAccordion(id) {
+            const content = document.getElementById(`accordion-content-${id}`);
+            const arrow = document.getElementById(`accordion-arrow-${id}`);
+            content.classList.toggle('open');
+            arrow.classList.toggle('rotate');
+        }
+        
+        function openQRIS() {
+            document.getElementById('qrisModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeQRIS() {
+            document.getElementById('qrisModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Generate Content
+        function generateContent() {
+            const container = document.getElementById('contentContainer');
+            let html = '';
+            let index = 0;
+            
+            // Pinned Links
+            contentData.pinned.forEach(item => {
+                html += `
+                    <a href="${item.url}" target="_blank" rel="noopener noreferrer" 
+                       class="glass gradient-border rounded-xl p-4 flex items-center justify-between group glow-hover transition-all duration-300 hover:scale-105 fade-in"
+                       style="animation-delay: ${index * 50}ms">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg icon-box flex items-center justify-center text-white">
+                                <i class="${item.icon} text-xl"></i>
+                            </div>
+                            <span class="text-white font-medium text-lg">${item.title}</span>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-300 group-hover:text-white transition-all"></i>
+                    </a>
+                `;
+                index++;
+            });
+            
+            // Groups
+            contentData.groups.forEach(group => {
+                html += `<div class="space-y-4 fade-in" style="animation-delay: ${index * 50}ms">`;
+                html += `
+                    <div class="flex items-center gap-2 text-white font-semibold text-sm px-2 py-2">
+                        <span class="text-lg">${group.icon}</span>
+                        <span>${group.title}</span>
+                        <div class="flex-1 h-px bg-gradient-to-r from-purple-500/50 to-transparent ml-2"></div>
+                    </div>
+                `;
+                
+                group.items.forEach(item => {
+                    if (item.type === 'link') {
+                        html += `
+                            <a href="${item.url}" target="_blank" rel="noopener noreferrer" 
+                               class="glass gradient-border rounded-xl p-4 flex items-center justify-between group glow-hover transition-all duration-300 hover:scale-105 fade-in"
+                               style="animation-delay: ${index * 50}ms">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-lg icon-box flex items-center justify-center text-white">
+                                        <i class="${item.icon} text-xl"></i>
+                                    </div>
+                                    <span class="text-white font-medium text-lg">${item.title}</span>
+                                </div>
+                                <i class="fas fa-chevron-right text-slate-300 group-hover:text-white transition-all"></i>
+                            </a>
+                        `;
+                    } else if (item.type === 'accordion') {
+                        html += `
+                            <div class="glass rounded-xl overflow-hidden fade-in" style="animation-delay: ${index * 50}ms">
+                                <button onclick="toggleAccordion('${index}')" class="w-full p-4 flex items-center justify-between group hover:bg-white/5 transition-all">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-lg icon-box flex items-center justify-center text-white">
+                                            <i class="${item.icon} text-xl"></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <div class="text-white font-medium text-lg">${item.title}</div>
+                                            <div class="text-slate-300 text-sm">${item.subtitle}</div>
+                                        </div>
+                                    </div>
+                                    <i id="accordion-arrow-${index}" class="fas fa-chevron-down text-slate-300 accordion-arrow"></i>
+                                </button>
+                                <div id="accordion-content-${index}" class="accordion-content">
+                                    <div class="p-4 pt-0">${item.content}</div>
+                                </div>
+                            </div>
+                        `;
+                    } else if (item.type === 'qris') {
+                        html += `
+                            <button onclick="openQRIS()" 
+                                    class="glass gradient-border rounded-xl p-4 flex items-center justify-between group glow-hover transition-all duration-300 hover:scale-105 w-full fade-in"
+                                    style="animation-delay: ${index * 50}ms">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-lg icon-box flex items-center justify-center text-white">
+                                        <i class="${item.icon} text-xl"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <div class="text-white font-medium text-lg">${item.title}</div>
+                                        <div class="text-slate-300 text-sm">${item.subtitle}</div>
+                                    </div>
+                                </div>
+                                <i class="fas fa-chevron-right text-slate-300 group-hover:text-white transition-all"></i>
+                            </button>
+                        `;
+                    } else if (item.type === 'media') {
+                        let mediaContent = '';
+                        if (item.mediaType === 'video') {
+                            mediaContent = `<div class="media-preview"><video controls poster="${item.thumbnail}" class="w-full"><source src="${item.videoUrl}" type="video/mp4"></video></div>`;
+                        } else if (item.mediaType === 'image') {
+                            mediaContent = `<div class="media-preview"><img src="${item.imageUrl}" alt="${item.title}" class="w-full"></div>`;
+                        }
+                        
+                        html += `
+                            <div class="glass rounded-xl overflow-hidden fade-in" style="animation-delay: ${index * 50}ms">
+                                <div class="p-4">
+                                    <div class="flex items-center gap-4 mb-3">
+                                        <div class="w-12 h-12 rounded-lg icon-box flex items-center justify-center text-white">
+                                            <i class="${item.icon} text-xl"></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <div class="text-white font-medium text-lg">${item.title}</div>
+                                            <div class="text-slate-300 text-sm">${item.subtitle}</div>
+                                        </div>
+                                    </div>
+                                    ${mediaContent}
+                                </div>
+                            </div>
+                        `;
+                    }
+                    index++;
+                });
+                
+                html += '</div>';
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', generateContent);
+        
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeQRIS();
+        });
+        
+        // Smooth entrance
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            setTimeout(() => document.body.style.opacity = '1', 100);
+        });
+    </script>
+</body>
+</html>
